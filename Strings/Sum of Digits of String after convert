@@ -1,0 +1,32 @@
+class Solution {
+public:
+    long long getDigi(string temp){
+        long long digiShakti =0;
+        for(char c:temp){
+            digiShakti += c-'0';
+        }
+        return digiShakti;
+    }
+    int getLucky(string s, int k) {
+        string temp ="";
+        long long sum =0;
+        for(char ch:s){
+            temp += to_string(ch-'a'+1);
+        }
+        long long digit = getDigi(temp);
+        k--;
+        long long digiSum = digit;
+        while(k--){
+            long long n = digit;
+            digiSum =0;
+            while(n > 0){
+                long long rem = n%10;
+                digiSum +=rem;
+                n/=10;
+            }
+            digit = digiSum;
+        }
+        return digiSum;
+
+    }
+};
