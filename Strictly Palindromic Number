@@ -1,0 +1,23 @@
+class Solution {
+public:
+    /*bool pal(string base){
+        int i =0;
+        int j = base.size()-1;
+        while(i<j){
+            if(base[i] != base[j])
+                return false;
+        }
+        return true;
+    }*/
+    bool isStrictlyPalindromic(int n) {
+        /*int temp = n-2;
+        string base = "";
+        while(n>0){
+            base += to_string(n%(n-2));
+            n/=(n-2);
+        }*/
+        return false;
+        
+        
+    }
+};
