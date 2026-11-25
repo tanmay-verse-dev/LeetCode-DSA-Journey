@@ -1,0 +1,39 @@
+class Solution {
+public:
+    bool isVowel(char ch){
+        return (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u');
+    }
+    string reverseWords(string s) {
+        int i =0;
+        int targetC=0;
+        int n =s.size();
+        while(i<n && s[i] != ' '){
+            //int targetC= 0;
+            if(isVowel(s[i])){
+                targetC++;
+                //i++;
+            }
+            i++;
+        }
+        if(i<n && s[i]==' ')
+            i++;
+        bool flag =true;
+        while(i<n){
+            int j =i;
+            int next =0;
+            while(s[j] != ' ' && j<n){
+                if(isVowel(s[j])){
+                    //j++;
+                    next++;
+                }
+                j++;
+            }
+            if(next==targetC){
+                reverse(s.begin()+i,s.begin()+j);
+            }
+            i=j+1;
+        }
+        return s;
+
+    }
+};
