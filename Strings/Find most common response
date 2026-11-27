@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string findCommonResponse(vector<vector<string>>& responses) {
+        vector<set<string>>temp;
+        for(vector<string>v:responses){
+            set<string>st;
+            for(string s:v){
+                st.insert(s);
+            }
+            temp.push_back(st);
+        }
+        map<string,int>mp;
+        int high = INT_MIN;
+        for(set st:temp){
+            for(string s:st){
+                mp[s]++;
+            }
+        }
+        string ans="";
+        for(auto h:mp){
+            if(h.second>high){
+                high=max(high,h.second);
+                ans = h.first;
+            }
+        }
+        return ans;
+    }
+};
