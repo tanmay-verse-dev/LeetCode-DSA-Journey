@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        map<char,int>mp1;
+        map<char,int>mp2;
+        int count = 0;
+        for(char ch:s){
+            mp1[ch]++;
+        }
+        for(char ch:t){
+            mp2[ch]++;
+        }
+        for(auto c:mp1){
+            if((mp1.find(c.first) != mp1.end()) && (mp2[c.first]<mp1[c.first])){
+                int diff = abs(mp2[c.first]-mp1[c.first]);
+                count += diff;
+
+            }
+        }
+        return count;
+        
+    }
+};
